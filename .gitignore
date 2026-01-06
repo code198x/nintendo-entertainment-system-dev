@@ -1,0 +1,6 @@
+*.nes
+*.o
+*.chr
+*.nam
+build/
+.DS_Store

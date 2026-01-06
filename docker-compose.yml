@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nes-dev:
+    build: .
+    image: code198x/nintendo-entertainment-system:latest
+    container_name: nes-development
+    volumes:
+      - .:/workspace
+      # Persist bash history
+      - bash-history:/root
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    # X11 forwarding for FCEUX emulator GUI (optional)
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    network_mode: host
+
+volumes:
+  bash-history:
