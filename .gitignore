@@ -1,6 +1,25 @@
+# NES build artifacts
 *.nes
 *.o
 *.chr
 *.nam
-build/
+*.dbg
+*.map
+
+# Emulator files
+*.sav
+*.srm
+
+# macOS
 .DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Build directories
+build/
+dist/
