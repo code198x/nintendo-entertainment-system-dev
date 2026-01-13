@@ -7,16 +7,17 @@ services:
     container_name: nes-development
     volumes:
       - .:/workspace
+      # Mount code-samples for building and testing
+      - ../code-samples:/code-samples
       # Persist bash history
       - bash-history:/root
+      # X11 forwarding for FCEUX emulator GUI (optional)
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
     working_dir: /workspace
     stdin_open: true
     tty: true
-    # X11 forwarding for FCEUX emulator GUI (optional)
     environment:
       - DISPLAY=${DISPLAY:-:0}
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:ro
     network_mode: host
 
 volumes:
