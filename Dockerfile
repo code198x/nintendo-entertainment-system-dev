@@ -22,15 +22,20 @@ RUN apt-get update && apt-get install -y \
     make \
     python3 \
     python3-pip \
-    # Screenshot capture (headless)
+    # Screenshot and video capture (headless)
     xvfb \
     imagemagick \
     xdotool \
+    openbox \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-# Add screenshot capture script
+# Add screenshot and video capture scripts
 COPY scripts/nes-screenshot.sh /usr/local/bin/nes-screenshot
-RUN chmod +x /usr/local/bin/nes-screenshot
+COPY scripts/nes-video.sh /usr/local/bin/nes-video
+RUN chmod +x /usr/local/bin/nes-screenshot /usr/local/bin/nes-video
+COPY scripts/inputs /scripts/inputs
+RUN chmod +x /scripts/inputs/*.sh 2>/dev/null || true
 
 # Create workspace directory
 WORKDIR /workspace
@@ -51,6 +56,7 @@ echo "  ca65 program.asm -o program.o          # Assemble"\n\
 echo "  ld65 -C nes.cfg program.o -o game.nes  # Link"\n\
 echo "  fceux game.nes                         # Run in emulator"\n\
 echo "  nes-screenshot game.nes out.png        # Headless screenshot"\n\
+echo "  nes-video game.nes out.mp4             # Video with input"\n\
 echo ""\n\
 echo "📚 Examples available in /workspace/examples/"\n\
 echo ""\n\
