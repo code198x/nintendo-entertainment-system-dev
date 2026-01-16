@@ -151,9 +151,9 @@ esac
 WIDTH=$((256 * SCALE))
 HEIGHT=$((240 * SCALE))
 
-# Start virtual framebuffer (add generous padding for window decorations)
-SCREEN_W=$((WIDTH + 300))
-SCREEN_H=$((HEIGHT + 300))
+# Start virtual framebuffer - needs to be large enough for window placement
+SCREEN_W=1024
+SCREEN_H=768
 Xvfb :${DISPLAY_NUM} -screen 0 ${SCREEN_W}x${SCREEN_H}x24 >/dev/null 2>&1 &
 XVFB_PID=$!
 sleep 1
@@ -236,6 +236,15 @@ if [[ -n "$FCEUX_WINDOW" ]]; then
         GRAB_W=$(echo "$GEOM_SIZE" | cut -dx -f1)
         GRAB_H=$(echo "$GEOM_SIZE" | cut -dx -f2)
         echo "Window geometry: ${GRAB_W}x${GRAB_H} at ${GRAB_X},${GRAB_Y}"
+
+        # Sanity check - if geometry seems wrong, use defaults
+        if [[ "$GRAB_W" -lt 100 ]] || [[ "$GRAB_H" -lt 100 ]]; then
+            echo "Warning: Invalid geometry detected, using full screen capture"
+            GRAB_X=0
+            GRAB_Y=0
+            GRAB_W=$SCREEN_W
+            GRAB_H=$SCREEN_H
+        fi
     fi
 fi
 
