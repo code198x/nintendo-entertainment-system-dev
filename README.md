@@ -126,7 +126,7 @@ my-project/
 
 ## 🎓 Learning Resources
 
-This environment is designed for use with the [Code Like It's 198x](https://code198x.stevehill.xyz) educational platform.
+This environment is designed for use with the [Code Like It's 198x](https://code198x.com) educational platform.
 
 **Courses available:**
 - NES 6502 Assembly Phase 1 - Hardware fundamentals and arcade games
@@ -334,5 +334,5 @@ MIT License - See LICENSE file for details
 
 Code Like It's 198x teaches retro game development for classic 8-bit and 16-bit systems. This NES environment provides everything needed to start coding for the legendary Nintendo Entertainment System.
 
-**Website:** https://code198x.stevehill.xyz
+**Website:** https://code198x.com
 **Course Materials:** https://github.com/code198x/

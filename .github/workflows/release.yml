@@ -77,6 +77,6 @@ jobs:
             ### 📚 Documentation:
             - [README](https://github.com/code198x/nintendo-entertainment-system-dev#readme)
             - [Examples](https://github.com/code198x/nintendo-entertainment-system-dev/tree/main/examples)
-            - [Course website](https://code198x.stevehill.xyz)
+            - [Course website](https://code198x.com)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
