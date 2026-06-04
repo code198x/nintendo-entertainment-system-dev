@@ -23,3 +23,6 @@
 # Build directories
 build/
 dist/
+
+# ROMs (kept out of version control - symlinked from ~/Projects/Reference/)
+roms/
