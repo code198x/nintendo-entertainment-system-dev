@@ -1,6 +1,8 @@
 # Nintendo Entertainment System Development Environment
 
-Docker-based development environment for NES programming with 6502 Assembly language support.
+Docker-based development environment for NES programming with 6502 assembly-language support.
+
+Current learner-facing modules and sample paths live in the Code198x website and `code-samples` repositories. This repo is the NES container/tooling environment, not the curriculum status source of truth.
 
 ## 🎯 What's Included
 
@@ -128,8 +130,9 @@ my-project/
 
 This environment is designed for use with the [Code Like It's 198x](https://code198x.com) educational platform.
 
-**Courses available:**
-- NES 6502 Assembly Phase 1 - Hardware fundamentals and arcade games
+**Current module examples:**
+- Meet the Machine
+- Dash
 
 **Code samples:** https://github.com/code198x/code-samples
 
